@@ -14,10 +14,16 @@ public class Aoc2022Controller : ControllerBase
         this.service = service;
     }
 
-    [HttpGet("1")]
-    public int AoC1()
+    [HttpGet("1b")]
+    public int AoC1b()
     {
-        return service.AoC001();
+        return service.AoC001b();
+    }
+
+    [HttpGet("1a")]
+    public int AoC1a()
+    {
+        return service.AoC001a();
     }
 
 }

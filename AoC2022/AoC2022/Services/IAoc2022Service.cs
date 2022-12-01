@@ -2,5 +2,6 @@
 
 public interface IAoc2022Service
 {
-    int AoC001();
+    int AoC001a();
+    int AoC001b();
 }
