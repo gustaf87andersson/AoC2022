@@ -21,12 +21,7 @@ public class Aoc2022Service : IAoc2022Service
                 "Z" => RpsExpectedOutcome.Win,
             };
 
-            totalPoints += expectedOutcome switch
-            {
-                RpsExpectedOutcome.Lose => 0,
-                RpsExpectedOutcome.Draw => 3,
-                RpsExpectedOutcome.Win => 6
-            };
+            totalPoints += (int)expectedOutcome; 
 
             var me = expectedOutcome is RpsExpectedOutcome.Draw
                 ? enemy : enemy switch
@@ -50,9 +45,9 @@ public class Aoc2022Service : IAoc2022Service
 
     public enum RpsExpectedOutcome
     {
-        Lose = 1,
-        Draw = 2,
-        Win = 3,
+        Lose = 0,
+        Draw = 3,
+        Win = 6,
     }
 
     public int AoC002a()
