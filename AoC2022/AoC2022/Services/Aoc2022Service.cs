@@ -2,6 +2,55 @@
 
 public class Aoc2022Service : IAoc2022Service
 {
+    public int AoC003a()
+    {
+        var readText = File.ReadAllLines(@"Inputs/003.txt");
+        var score = 0;
+        foreach (var line in readText)
+        {
+            var first = line[..(line.Length / 2)];
+            var second = line.Substring((int)(line.Length / 2), (int)(line.Length / 2));
+
+            var existingChars = new List<char>();
+
+            foreach (char item in first)
+            {
+                if(!second.Contains(item) || existingChars.Contains(item)) continue;
+                
+                score += item is >= 'A' and <= 'Z' ? item - 64 + 26 : item - 96;
+                existingChars.Add(item);
+            }
+        }
+        return score;
+    }
+
+    public int AoC003b()
+    {
+        var readText = File.ReadAllLines(@"Inputs/003.txt");
+        var score = 0;
+        var currentGroup = new List<string>();
+        var existingChars = new List<char>();
+        var index = 0;
+        foreach (var line in readText)
+        {
+            currentGroup.Add(line);
+            index++;
+
+            if(index % 3 != 0) continue;
+
+            foreach (var item in line)
+            {
+                if(!currentGroup.All(x => x.Contains(item)) || existingChars.Contains(item)) continue;
+                
+                score += item is >= 'A' and <= 'Z' ? item - 64 + 26 : item - 96;
+                existingChars.Add(item);
+            }
+            existingChars = new List<char>();
+            currentGroup = new List<string>();
+        }
+        return score;
+    }
+
     public int AoC002b()
     {
         var readText = File.ReadAllLines(@"Inputs/002.txt");

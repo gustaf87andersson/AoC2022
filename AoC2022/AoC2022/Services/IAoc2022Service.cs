@@ -6,4 +6,6 @@ public interface IAoc2022Service
     int AoC001b();
     int AoC002a();
     int AoC002b();
+    int AoC003a();
+    int AoC003b();
 }

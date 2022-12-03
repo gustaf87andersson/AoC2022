@@ -14,6 +14,18 @@ public class Aoc2022Controller : ControllerBase
         this.service = service;
     }
 
+    [HttpGet("3b")]
+    public int AoC3b()
+    {
+        return service.AoC003b();
+    }
+
+    [HttpGet("3a")]
+    public int AoC3a()
+    {
+        return service.AoC003a();
+    }
+
     [HttpGet("2b")]
     public int AoC2b()
     {
